@@ -227,6 +227,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdysTech.CredentialManager"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpellChecker", "Externals\NetSpell.SpellChecker\SpellChecker.csproj", "{28BA9FD5-CE46-4E0B-A42B-0EEECFD59BB8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PSTaskDialog", "Externals\PSTaskDialog\PSTaskDialog.csproj", "{0253E98B-6374-48AA-8740-89BC2939FF77}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -423,6 +425,10 @@ Global
 		{28BA9FD5-CE46-4E0B-A42B-0EEECFD59BB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28BA9FD5-CE46-4E0B-A42B-0EEECFD59BB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28BA9FD5-CE46-4E0B-A42B-0EEECFD59BB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0253E98B-6374-48AA-8740-89BC2939FF77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0253E98B-6374-48AA-8740-89BC2939FF77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0253E98B-6374-48AA-8740-89BC2939FF77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0253E98B-6374-48AA-8740-89BC2939FF77}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -489,6 +495,7 @@ Global
 		{AA58470E-24F7-4CED-8C76-06F05B09F1B1} = {958D7C09-1FA5-4438-A6A0-B3E8BD96E291}
 		{7DFD87C6-BBEF-4029-8F6E-328C2066FB27} = {0E859634-B3DF-46AC-A73C-D49734F19D6A}
 		{28BA9FD5-CE46-4E0B-A42B-0EEECFD59BB8} = {0E859634-B3DF-46AC-A73C-D49734F19D6A}
+		{0253E98B-6374-48AA-8740-89BC2939FF77} = {0E859634-B3DF-46AC-A73C-D49734F19D6A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {ECECB7EA-BCCF-44AD-B63E-C2FA45589FB0}
