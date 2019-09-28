@@ -6,7 +6,7 @@ using GitCommands;
 using GitUI.Properties;
 using GitUI.UserControls;
 using JetBrains.Annotations;
-using Microsoft.WindowsAPICodePack.Taskbar;
+////using Microsoft.WindowsAPICodePack.Taskbar;
 
 namespace GitUI
 {
@@ -93,7 +93,7 @@ namespace GitUI
             {
                 ProgressBar.Style = ProgressBarStyle.Blocks;
                 ProgressBar.Value = Math.Min(100, progressValue);
-                TaskbarProgress.SetProgress(TaskbarProgressBarState.Normal, progressValue, 100);
+                ////TaskbarProgress.SetProgress(TaskbarProgressBarState.Normal, progressValue, 100);
             }
 
             // Show last progress message in the title, unless it's showing in the control body already
@@ -129,12 +129,12 @@ namespace GitUI
                 Ok.Focus();
                 AcceptButton = Ok;
                 Abort.Enabled = false;
-                TaskbarProgress.SetProgress(
-                    isSuccess
-                        ? TaskbarProgressBarState.Normal
-                        : TaskbarProgressBarState.Error,
-                    100,
-                    100);
+                ////TaskbarProgress.SetProgress(
+                ////    isSuccess
+                ////        ? TaskbarProgressBarState.Normal
+                ////        : TaskbarProgressBarState.Error,
+                ////    100,
+                ////    100);
 
                 picBoxSuccessFail.Image = isSuccess
                     ? Images.StatusBadgeSuccess
@@ -226,7 +226,7 @@ namespace GitUI
 
             StartPosition = FormStartPosition.CenterParent;
 
-            TaskbarProgress.SetIndeterminate();
+            ////TaskbarProgress.SetIndeterminate();
 
             Reset();
             ProcessCallback(this);
@@ -265,7 +265,7 @@ namespace GitUI
 
         internal void AfterClosed()
         {
-            TaskbarProgress.Clear();
+            ////TaskbarProgress.Clear();
         }
     }
 

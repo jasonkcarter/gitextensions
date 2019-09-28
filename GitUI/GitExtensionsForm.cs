@@ -47,7 +47,7 @@ namespace GitUI
 
                 needsPositionSave = false;
                 _windowPositionManager.SavePosition(this);
-                TaskbarProgress.Clear();
+                ////TaskbarProgress.Clear();
             }
         }
 
