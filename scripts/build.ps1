@@ -96,7 +96,7 @@ function Build {
 
   # launch the app once it is built
   if ($launch) {
-    $gitExtensionsExe = "$ArtifactsDir\bin\GitExtensions\$configuration\net461\GitExtensions.exe";
+    $gitExtensionsExe = "$ArtifactsDir\bin\GitExtensions\$configuration\netcoreapp3.1\GitExtensions.exe";
     if (Test-Path $gitExtensionsExe) {
       & $gitExtensionsExe
     }
