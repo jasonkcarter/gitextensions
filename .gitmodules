@@ -18,5 +18,5 @@
 	url = ../../gitextensions/CredentialManager.git
 [submodule "Externals/PSTaskDialog"]
 	path = Externals/PSTaskDialog
-	url = ../../PSTaskDialog.git
+	url = ../../gitextensions/PSTaskDialog.git
 	branch = master
