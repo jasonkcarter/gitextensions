@@ -13,9 +13,6 @@
 [submodule "Externals/EasyHook"]
 	path = Externals/EasyHook
 	url = ../../gitextensions/EasyHook.git
-[submodule "Externals/AdysTech.CredentialManager"]
-	path = Externals/AdysTech.CredentialManager
-	url = ../../gitextensions/CredentialManager.git
 [submodule "Externals/PSTaskDialog"]
 	path = Externals/PSTaskDialog
 	url = ../../gitextensions/PSTaskDialog.git

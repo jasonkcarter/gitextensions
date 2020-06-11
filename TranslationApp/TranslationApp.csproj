@@ -2,6 +2,7 @@
   <PropertyGroup>
     <ApplicationIcon>..\Logo\git-extensions-logo.ico</ApplicationIcon>
     <OutputType>WinExe</OutputType>
+    <UseWindowsForms>true</UseWindowsForms>
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>

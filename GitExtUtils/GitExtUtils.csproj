@@ -2,7 +2,6 @@
 
   <PropertyGroup>
     <OutputType>Library</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
     <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
     <RunAnalyzersDuringLiveAnalysis>false</RunAnalyzersDuringLiveAnalysis>
@@ -12,10 +11,6 @@
     <PackageReference Include="AdysTech.CredentialManager" Version="$(AdysTechCredentialManagerVersion)" />
     <PackageReference Include="Ben.Demystifier" Version="$(BenDemystifierVersion)" />
     <PackageReference Include="JetBrains.Annotations" Version="$(JetBrainsAnnotationsVersion)" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Externals\AdysTech.CredentialManager\AdysTech.CredentialManager\AdysTech.CredentialManager.csproj" />
   </ItemGroup>
 
 </Project>
