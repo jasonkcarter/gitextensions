@@ -29,7 +29,7 @@ namespace GitCommandsTests.Settings
         [TestCase("boo")]
         public void ctor_FileWatcher_Filter_should_be_default_if_invalid_dir(string settingsFilePath)
         {
-            new MockFileSettingsCache(settingsFilePath, false).GetTestAccessor().FileSystemWatcher.Filter.Should().Be("*.*");
+            new MockFileSettingsCache(settingsFilePath, false).GetTestAccessor().FileSystemWatcher.Filter.Should().Be("*");
         }
 
         [TestCase(null)]
