@@ -1,17 +1,17 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <Import Project="Project.Build.targets" />
   <Import Project="Project.Publish.targets" />
   <Import Project="Project.Loc.targets" />
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <UseWindowsForms>true</UseWindowsForms>
-    <UseWpf>true</UseWpf>
+    <!-- <UseWindowsForms>true</UseWindowsForms>
+    <UseWpf>true</UseWpf> -->
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
     <RunAnalyzersDuringLiveAnalysis>false</RunAnalyzersDuringLiveAnalysis>
     <ApplicationIcon>..\Logo\git-extensions-logo.ico</ApplicationIcon>
-    <DisableImplicitFrameworkReferences>true</DisableImplicitFrameworkReferences>
+    <!-- <DisableImplicitFrameworkReferences>true</DisableImplicitFrameworkReferences> -->
     <StartupObject />
 
     <!-- Default debugging command starts GitExtensions browsing this repository -->
