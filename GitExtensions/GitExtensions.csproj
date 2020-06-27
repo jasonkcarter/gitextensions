@@ -11,6 +11,7 @@
     <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
     <RunAnalyzersDuringLiveAnalysis>false</RunAnalyzersDuringLiveAnalysis>
     <ApplicationIcon>..\Logo\git-extensions-logo.ico</ApplicationIcon>
+    <DisableImplicitFrameworkReferences>true</DisableImplicitFrameworkReferences>
     <StartupObject />
 
     <!-- Default debugging command starts GitExtensions browsing this repository -->

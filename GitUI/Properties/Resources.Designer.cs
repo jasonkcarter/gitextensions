@@ -94,16 +94,19 @@ namespace GitUI.Properties {
         ///   Looks up a localized string similar to Changelog
         ///=========
         ///
-        ///### Version 3.2.1 (2 Sep 2019)
+        ///### Version 3.4.2 (21 June 2020)
         ///
-        ///#### Features:
-        ///* Fix scrolling for committers label in statistics plugin - PR [7092]
-        ///* Display icons in commit templates menu items - PR [7037]
-        ///* Settings: Display label to the top to make UI more readable on multiline controls - PR [7036]
-        ///* Fix potential bad end of line replacement - PR [7032]
-        ///* Pull form items clipped on HiDPI scaled displays  - Issue [7020]
-        ///* TortoiseGitMerge.exe old default name - PR [7004]
-        ///* Add support for &quot;--rebase-merg [rest of string was truncated]&quot;;.
+        ///#### Changes:
+        ///* [#8255] [NBug] Invalid diff/merge tool requestedParameter name: toolName
+        ///* [#8252] Draw current commit message bold in detached-head mode
+        ///* [#8246] Disable context menu items rather than hiding them
+        ///* [#8240] Make WindowsJumpListManager calls safer
+        ///* [#8238] Display &apos;Plugin Manager&quot; next to &quot;Plugin settings&quot; in the menu
+        ///* [#8237] ResetAnotherBranch: Quote path arguments
+        ///* [#8231] Centrally handle user script errors
+        ///
+        ///
+        ///[8255 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string ChangeLog {
             get {

@@ -1,30 +1,20 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Library</OutputType>
-    <UseWindowsForms>true</UseWindowsForms>
-    <UseWpf>true</UseWpf>
+    <!-- <UseWindowsForms>true</UseWindowsForms>
+    <UseWpf>true</UseWpf> -->
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
     <RunAnalyzersDuringLiveAnalysis>false</RunAnalyzersDuringLiveAnalysis>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="ApplicationInsights.config" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="ApplicationInsights.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="AppInsights.WindowsDesktop" Version="$(AppInsightsWindowsDesktopVersion)" />
     <PackageReference Include="Microsoft-WindowsAPICodePack-Core" Version="1.1.4" />
     <PackageReference Include="Microsoft-WindowsAPICodePack-Shell" Version="1.1.4" />
     <PackageReference Include="System.IO.Abstractions" Version="$(SystemIOAbstractionsVersion)" />
-    <PackageReference Include="System.Reactive" Version="$(SystemReactiveVersion)" />
+    <!-- <PackageReference Include="System.Reactive" Version="$(SystemReactiveVersion)" /> -->
   </ItemGroup>
 
   <ItemGroup>
@@ -38,12 +28,48 @@
     <ProjectReference Include="..\ResourceManager\ResourceManager.csproj" />
   </ItemGroup>
 
-  <Target Name="CopyTranslations" AfterTargets="AfterBuild">
-    <ItemGroup>
-      <Translations Include="$(ProjectDir)Translation\*.xlf;$(ProjectDir)Translation\*.gif" />
-    </ItemGroup>
-    <Copy SourceFiles="@(Translations)" DestinationFolder="$(TargetDir)Translation" ContinueOnError="false" />
-  </Target>
+
+  <ItemGroup>
+    <!-- Resources -->
+    <EmbeddedResource Update="Properties\Resources.resx" Generator="ResXFileCodeGenerator" LastGenOutput="Resources.Designer.cs" />
+    <Compile Update="Properties\Resources.Designer.cs" AutoGen="True" DependentUpon="Resources.resx" DesignTime="True" />
+
+    <!-- Settings -->
+    <None Update="Properties\Settings.settings" Generator="SettingsSingleFileGenerator" LastGenOutput="Settings.Designer.cs" />
+    <Compile Update="Properties\Settings.Designer.cs" AutoGen="True" DependentUpon="Settings.settings">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+
+    <None Include="Properties\DataSources\*.datasource" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Resources\Icons\artwork\**" />
+    <Compile Remove="Resources\Icons\originals\**" />
+    <EmbeddedResource Remove="Resources\Icons\artwork\**" />
+    <EmbeddedResource Remove="Resources\Icons\originals\**" />
+    <None Remove="Resources\Icons\artwork\**" />
+    <None Remove="Resources\Icons\originals\**" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="gituikey.snk.pfx" />
+    <None Include="Resources\ChangeLog.md" />
+
+    <Content Include="Themes\dark.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Themes\win10default.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 
 </Project>
 
