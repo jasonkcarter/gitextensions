@@ -40,7 +40,7 @@ namespace GitUI.CommandsDialogs
                 dialog.Close();
             };
             dialog.Controls.Add(btnRemoveSelectedInvalidRepository);
-            if (invalidPathCount > 1)
+            if(invalidPathCount > 1)
             {
                 var btnRemoveAllInvalidRepositories = new TaskDialogCommandLink("RemoveAllInvalidRepositories", null, string.Format(Strings.RemoveAllInvalidRepositories, invalidPathCount));
                 btnRemoveAllInvalidRepositories.Click += (s, e) =>
