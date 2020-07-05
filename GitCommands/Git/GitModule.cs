@@ -49,8 +49,17 @@ namespace GitCommands
             WorkingDirGitDir = GitDirectoryResolverInstance.Resolve(WorkingDir);
             _indexLockManager = new IndexLockManager(this);
             _commitDataManager = new CommitDataManager(() => this);
-            _gitExecutable = new Executable(() => AppSettings.GitCommand, WorkingDir);
-            _gitCommandRunner = new GitCommandRunner(_gitExecutable, () => SystemEncoding);
+            if (WslGitCommandRunner.TryCreate(WorkingDir, () => SystemEncoding, out WslGitCommandRunner wslCommandRunner))
+            {
+                _gitCommandRunner = wslCommandRunner;
+                _gitExecutable = wslCommandRunner.GitExecutable;
+                GitArgumentsFilter = wslCommandRunner.ArgumentsFilter;
+            }
+            else
+            {
+                _gitExecutable = new Executable(() => AppSettings.GitCommand, WorkingDir);
+                _gitCommandRunner = new GitCommandRunner(_gitExecutable, () => SystemEncoding);
+            }
 
             // If this is a submodule, populate relevant properties.
             // If this is not a submodule, these will all be null.
@@ -139,6 +148,9 @@ namespace GitCommands
         /// </summary>
         [NotNull]
         public IGitCommandRunner GitCommandRunner => _gitCommandRunner;
+
+        [CanBeNull]
+        public Func<string, string> GitArgumentsFilter { get; private set; }
 
         /// <summary>
         /// Gets the location of .git directory for the current working folder.

@@ -17,16 +17,18 @@ namespace GitCommands
     {
         private readonly string _workingDir;
         private readonly Func<string> _fileNameProvider;
+        private readonly Func<string, string> _argumentsFilter;
 
-        public Executable([NotNull] string fileName, [NotNull] string workingDir = "")
-            : this(() => fileName, workingDir)
+        public Executable([NotNull] string fileName, [NotNull] string workingDir = "", [CanBeNull] Func<string, string> argumentsFilter = null)
+            : this(() => fileName, workingDir, argumentsFilter)
         {
         }
 
-        public Executable([NotNull] Func<string> fileNameProvider, [NotNull] string workingDir = "")
+        public Executable([NotNull] Func<string> fileNameProvider, [NotNull] string workingDir = "", [CanBeNull] Func<string, string> argumentsFilter = null)
         {
             _workingDir = workingDir;
             _fileNameProvider = fileNameProvider;
+            _argumentsFilter = argumentsFilter;
         }
 
         /// <inheritdoc />
@@ -37,6 +39,10 @@ namespace GitCommands
             EnvironmentConfiguration.SetEnvironmentVariables();
 
             var args = (arguments.Arguments ?? "").Replace("$QUOTE$", "\\\"");
+            if (_argumentsFilter != null)
+            {
+                args = _argumentsFilter(args);
+            }
 
             var fileName = _fileNameProvider();
 
@@ -46,6 +52,11 @@ namespace GitCommands
         public string GetOutput(ArgumentString arguments)
         {
             return this.GetOutput(arguments, null);
+        }
+
+        public override string ToString()
+        {
+            return _fileNameProvider();
         }
 
         #region ProcessWrapper
