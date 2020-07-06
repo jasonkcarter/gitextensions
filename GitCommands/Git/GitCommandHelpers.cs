@@ -400,7 +400,7 @@ namespace GitCommands
 
         public static ArgumentString ContinueMergeCmd()
         {
-            return new GitArgumentBuilder("merge") { "--continue" };
+            return new GitArgumentBuilder("merge") { "--continue", "--no-edit" };
         }
 
         public static ArgumentString AbortMergeCmd()
@@ -1088,6 +1088,7 @@ namespace GitCommands
                 { allowUnrelatedHistories, "--allow-unrelated-histories" },
                 { !string.IsNullOrWhiteSpace(mergeCommitFilePath), $"-F \"{mergeCommitFilePath}\"" }, // let git fail, if the file doesn't exist
                 { log != null && log.Value > 0, $"--log={log}" },
+                @"--no-edit",
                 branch
             };
         }
